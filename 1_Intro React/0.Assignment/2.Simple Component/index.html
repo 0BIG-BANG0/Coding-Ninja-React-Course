@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starting with React App</title>
+    <title>React Component</title>
     <!-- CDN Links For React for Getting Started -->
     <script
       crossorigin
@@ -17,29 +17,22 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-    <div id="root">
-      <!-- <h1>Hello World</h1> -->
-    </div>
-    <!--  -->
+    <div id="root"></div>
     <script type="text/babel">
-      // Arrow Function
-
-      function Name() {
+      function App() {
         return (
           <>
-            <p>JSX is Javascript XML</p>
+            <h1>React Project</h1>
+            <p>Skills used to make this Project</p>
+            <ol>
+              <li>HTML</li>
+              <li>javascript</li>
+              <li>CSS</li>
+            </ol>
           </>
         );
       }
-
-      const App = () => (
-        <>
-          <h1 className="head"> Hello JSX </h1>
-          <p>This is created with JSX!</p>
-          <Name />
-        </>
-      );
-      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+      ReactDOM.createRoot(document.getElementById("root")).render(App());
     </script>
   </body>
 </html>

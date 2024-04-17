@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABout</title>
+    <!-- CDN Links For React for Getting Started -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- CDN for Babel Javascript Compiler -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const about = <><h1>About React</h1>
+        <ul>
+            <b>
+            <li>Virtual Dom</li>
+            <li>Performance</li>
+            <li>JSX</li>
+            <li>Simplicity</li>
+        </b>
+            </ul>
+</>
+        ReactDOM.createRoot(document.getElementById('root')).render(about)
+    </script>
+</body>
+</html>
