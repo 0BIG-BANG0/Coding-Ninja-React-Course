@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro to JSX</title>
+    <!-- CDN Links For React for Getting Started -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- CDN for Babel Javascript Compiler -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <!-- <h1>Hello World</h1> -->
+    </div>
+    <!--  -->
+    <script type="text/babel">
+      const header = <h1>JSX Expression</h1>;
+
+      function App() {
+        var name = "Batman";
+        var age = 45;
+        let demo = null;
+        let undef;
+        let bol = true; // null , undefined and boolean values can't be displayed
+        return (
+          <>
+            {header}
+            <p>String : {name}</p>
+            <p>Your age is {age}</p>
+            <p>Null : {null}</p>
+            <p>Undefined : {undef}</p>
+            <p>Boolean : {bol.toString()}</p>{" "}
+            {/*boolean can return a value when .toString() is used*/}
+            <p>Calling a function: {sum()}</p>
+          </>
+        );
+      }
+      function sum() {
+        var x = 5;
+        var y = 5;
+        return x + y;
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>

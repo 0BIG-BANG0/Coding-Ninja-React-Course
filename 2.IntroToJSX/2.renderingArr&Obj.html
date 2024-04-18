@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro to JSX</title>
+    <!-- CDN Links For React for Getting Started -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- CDN for Babel Javascript Compiler -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <!-- <h1>Hello World</h1> -->
+    </div>
+    <!--  -->
+    <script type="text/babel">
+      const header = <h1>Rendering Arrays and Objects</h1>;
+
+      function App() {
+        const arr = [1, 2, 3, 4, 5, 6, 7];
+        const cars = [
+          "Buggati",
+          "Dodge",
+          "Ferrari",
+          "Koiensegg",
+          "Lamborgini",
+          "McLaren",
+        ];
+        const obj = {
+          name: "Batman",
+          work: "Fighting Criminal",
+        };
+        return (
+          <>
+            {header}
+            <p>Array is : {arr}</p>
+            {arr.map((num) => (
+              <h4>{num}</h4>
+            ))}
+            <p>Name : {obj.name}</p>
+            <p>Work : {obj.work}</p>
+          </>
+        );
+      }
+
+      function Car() {
+        const cars = [
+          "Buggati",
+          "Dodge",
+          "Ferrari",
+          "Koiensegg",
+          "Lamborgini",
+          "McLaren",
+        ];
+
+        return (
+          <>
+            <ul>
+              {cars.map((car, index) => (
+                <li key={index}>
+                  <h3>{car}</h3>
+                </li>
+              ))}
+            </ul>
+          </>
+        );
+      }
+
+      function Student() {
+        let students = [
+          { name: "student1", age: 13, marks: 85 },
+          { name: "student2", age: 13, marks: 95 },
+          { name: "student3", age: 13, marks: 75 },
+          { name: "student4", age: 13, marks: 98 },
+        ];
+        return (
+          <>
+            <h1>Student Details</h1>
+            <table border="3px">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Marks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {students.map((stu, index) => (
+                  <tr key={index}>
+                    <td>{stu.name}</td>
+                    <td>{stu.age}</td>
+                    <td>{stu.marks}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        );
+      }
+
+      function CarDetails() {
+        let cars = [
+          {
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF8AFin3S5jQNdY6Tn7fmdHn53a6upN2KVzlNWt9CViBCWLOx0OUtS-cPB9h8IqWVovsU&usqp=CAUcaar.jpg",
+            name: "Buggati",
+            details: "A scientific Miracle",
+          },
+          {
+            img: "https://media.zigcdn.com/media/model/2023/Apr/front-1-4-left-1619878655_600x400.jpg",
+            name: "McLaren",
+            details: "A True Class in itself",
+          },
+          {
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9UsGEmQsNCPjiqLkuZnZ7I0cavtO0jRejxNKgNytBwaxyq9MrS9ad7gPSuMrQAwqUZL8&usqp=CAU",
+            name: "Koiensegg",
+            details: "Fastest Car on Planet Earth",
+          },
+        ];
+        return (
+          <>
+            <h1>Car Details</h1>
+            <table border="3px">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Car</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {cars.map((car, index) => (
+                  <tr key={index}>
+                    <td>
+                      <img src={car.img} alt="" style={{ width: "200px" }} />
+                    </td>
+                    <td>{car.name}</td>
+                    <td>{car.details}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        );
+      }
+      //Rendering Component Based on Condition
+      //   If else
+
+      function App1() {
+        let showCars = false;
+        if (showCars) {
+          return <CarDetails />;
+        }
+        return (
+          <>
+            <Student />
+          </>
+        );
+      }
+      //Rendering Component Based on Condition
+      //ternary Operator
+      function App2() {
+        let loggedIn = true;
+        let name ="Alexa"
+        let lastName = "Diaz"
+        return(
+             <>
+            <h1>Hello {loggedIn? lastName ||name : "User"} </h1>
+            {loggedIn && <p>"Welcome to the Portal"</p>}
+        </>
+      )}
+      
+      ReactDOM.createRoot(document.getElementById("root")).render(<App2 />);
+    </script>
+  </body>
+</html>
